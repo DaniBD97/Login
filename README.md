@@ -1,12 +1,49 @@
-Login hecho con MONGO DB - ReduxToolkit
+<h1 align="start"> API REST </h1>
 
-este proyecto consume api-rest a traves de express con la base de datos MongoDB
-puedes encontrar persistencia , hasheo de password, un monton de  javascript
+<p> Este proyecto esta desarrollado para consumir una API REST que usa como servidor MongoDB y Expres(Nodejs) para la toma y almacenamiento de datos,
+y usa la parte del cliente con Vite y react.
 
-Se uso para  el diseño Tailwind - FontAwesome
-Para la navegacion react-router-dom V6.23.0
+tambien te debo decir que encontraras un CRUD en este proyecto
+toda funcion esta desarrollada e implementada para crear, actualizar, eliminar y almacenar un usuario
+a traves de redes sociales o simplemente rellenando el formulario de registro
+sientete libre de utilizar este codigo con motivos de investigacion,educativos o pasantias
 
-se usa OAuth para el login con las diferentes redes sociales que se requiera
-se creo con firebase el metodo para subir imagenes
+</p>
 
-Hechale un vistazo al codigo, Ojo esta es la Version 2
+Necesitaras las siguientes dependencias:
+
+```bash
+  BACKEND
+
+      npm install bcryptjs cookie-parser dotenv express jsonwebtoken mongoose nodemon
+
+  FRONTEND
+
+      npm install firebase react-redux  react-router-dom react-toastify redux-persist  @reduxjs/toolkit
+  
+
+```
+
+para el diseño te dejo libre eleccion este proyecto usa Tailwind y Fontawesome
+
+
+tambien en la parte de cliente creamos un proxy para una mejor manipulacion de las llamadas con el servidor
+
+```bash
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        secure: false,
+      },
+    },
+  },
+  plugins: [react()],
+});
+
+```
